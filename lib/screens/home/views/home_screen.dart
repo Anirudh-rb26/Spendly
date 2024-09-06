@@ -1,67 +1,67 @@
-import 'dart:math';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:spendly/components/bottom_navbar.dart';
+import 'package:spendly/screens/home/components/gradient_button.dart';
 import 'package:spendly/screens/home/views/home_content.dart';
+import 'package:spendly/screens/stats/screens/stat_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  int pageIndex = 0;
+  late PageController _pageController;
+
+  void _onNavBarTap(int index) {
+    setState(() {
+      pageIndex = index;
+      _pageController.animateToPage(
+        index,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    });
+  }
+
+  void _onPageChanged(int index) {
+    setState(() {
+      pageIndex = index;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: pageIndex);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // appBar: AppBar(),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.vertical(
-          top: Radius.circular(30),
-          // bottom: Radius.circular(30),
-        ),
-        child: BottomNavigationBar(
-          backgroundColor: Colors.white,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          elevation: 3,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(
-                CupertinoIcons.home,
-                size: 30,
-              ),
-              label: "Home",
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(
-                CupertinoIcons.graph_square_fill,
-                size: 30,
-              ),
-              label: "Stats",
-            ),
-          ],
-        ),
+      bottomNavigationBar: CustomBottomNavbar(
+        currentIndex: pageIndex,
+        onTap: _onNavBarTap,
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: Container(
-        width: 60,
-        height: 60,
-        decoration: BoxDecoration(
-          shape: BoxShape.circle,
-          gradient: LinearGradient(
-            colors: [
-              Theme.of(context).colorScheme.tertiary,
-              Theme.of(context).colorScheme.secondary,
-              Theme.of(context).colorScheme.primary,
-            ],
-            transform: const GradientRotation(pi / 6),
-          ),
-        ),
-        child: FloatingActionButton(
-          backgroundColor: Colors.transparent,
-          elevation: 0,
-          onPressed: () {},
-          child: const Icon(CupertinoIcons.add),
-        ),
+      floatingActionButton: const GradientButton(),
+      body: PageView(
+        controller: _pageController,
+        onPageChanged: _onPageChanged,
+        children: const [
+          HomeContent(),
+          StatScreen(),
+        ],
       ),
-      body: const HomeContent(),
     );
   }
 }
