@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:spendly/components/bottom_navbar.dart';
-import 'package:spendly/screens/home/components/gradient_button.dart';
-import 'package:spendly/screens/home/views/home_content.dart';
-import 'package:spendly/screens/stats/screens/stat_screen.dart';
+import 'package:spendly/presentation/home_screen/components/gradient_button.dart';
+import 'package:spendly/presentation/home_screen/screen/home_content.dart';
+import 'package:spendly/presentation/stat_screen/screens/stat_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

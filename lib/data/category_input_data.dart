@@ -16,13 +16,14 @@ enum ColorList {
 }
 
 // DropdownMenuEntry labels and values for the second dropdown menu.
-enum IconList {
+enum CategoryList {
   shopping(
     'Shopping',
     Icon(
       CupertinoIcons.bag,
       color: Colors.grey,
     ),
+    "CupertinoIcons.bag",
   ),
   transport(
     'Transport',
@@ -30,6 +31,7 @@ enum IconList {
       CupertinoIcons.bus,
       color: Colors.grey,
     ),
+    "CupertinoIcons.bus",
   ),
   rent(
     'Rent',
@@ -37,6 +39,7 @@ enum IconList {
       CupertinoIcons.house,
       color: Colors.grey,
     ),
+    "CupertinoIcons.house",
   ),
   phone(
     'Phone',
@@ -44,6 +47,7 @@ enum IconList {
       CupertinoIcons.phone,
       color: Colors.grey,
     ),
+    "CupertinoIcons.phone",
   ),
   groceries(
     'Groceries',
@@ -51,6 +55,7 @@ enum IconList {
       CupertinoIcons.shopping_cart,
       color: Colors.grey,
     ),
+    "CupertinoIcons.shopping_cart",
   ),
   insurance(
     'Insurance',
@@ -58,6 +63,7 @@ enum IconList {
       CupertinoIcons.umbrella,
       color: Colors.grey,
     ),
+    "CupertinoIcons.umbrella",
   ),
   entertainment(
     'Entertainment',
@@ -65,6 +71,7 @@ enum IconList {
       CupertinoIcons.tv,
       color: Colors.grey,
     ),
+    "CupertinoIcons.tv",
   ),
   travel(
     'Travel',
@@ -72,6 +79,7 @@ enum IconList {
       CupertinoIcons.airplane,
       color: Colors.grey,
     ),
+    "CupertinoIcons.airplane",
   ),
   books(
     'Books',
@@ -79,6 +87,7 @@ enum IconList {
       CupertinoIcons.book,
       color: Colors.grey,
     ),
+    "CupertinoIcons.book",
   ),
   work(
     'Work',
@@ -86,6 +95,7 @@ enum IconList {
       CupertinoIcons.briefcase,
       color: Colors.grey,
     ),
+    "CupertinoIcons.briefcase",
   ),
   fitness(
     'Fitness',
@@ -93,9 +103,16 @@ enum IconList {
       CupertinoIcons.heart,
       color: Colors.grey,
     ),
+    "CupertinoIcons.heart",
   );
 
-  const IconList(this.label, this.icon);
+  const CategoryList(
+    this.label,
+    this.icon,
+    this.iconName,
+  );
+
   final String label;
   final Icon icon;
+  final String iconName;
 }

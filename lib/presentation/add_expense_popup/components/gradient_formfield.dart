@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:spendly/constants/custom_gradient.dart';
 
 class GradientTextFormField extends StatefulWidget {
   final TextEditingController controller;
@@ -29,15 +32,7 @@ class _GradientTextFormFieldState extends State<GradientTextFormField> {
       style: TextStyle(
         fontSize: 50, // Text size
         foreground: Paint()
-          ..shader = LinearGradient(
-            colors: [
-              Theme.of(context).colorScheme.secondary,
-              Theme.of(context).colorScheme.tertiary,
-              Theme.of(context).colorScheme.primary,
-            ],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ).createShader(
+          ..shader = customLinearGradient(context, 5).createShader(
             const Rect.fromLTWH(0, 0, 200, 70),
           ),
       ),

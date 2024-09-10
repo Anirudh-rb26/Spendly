@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:spendly/components/info_tooltip.dart';
 import 'package:spendly/constants/custom_gradient.dart';
-import 'package:spendly/screens/home/components/cash_tile.dart';
+import 'package:spendly/presentation/home_screen/components/cash_tile.dart';
 
 class HomeCard extends StatelessWidget {
   const HomeCard({
@@ -18,7 +18,10 @@ class HomeCard extends StatelessWidget {
       width: double.infinity,
       height: MediaQuery.of(context).size.width / 2,
       // color: Colors.amber,
-      decoration: customLinearGradient(context, 4),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadiusDirectional.circular(20),
+        gradient: customLinearGradient(context, 4),
+      ),
       child: Stack(
         children: [
           Align(

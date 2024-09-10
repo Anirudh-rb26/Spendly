@@ -1,16 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:spendly/screens/home/components/home_card.dart';
-import 'package:spendly/screens/home/components/list/transaction_list.dart';
-import 'package:spendly/screens/home/components/user_information.dart';
+import 'package:spendly/presentation/home_screen/components/home_card.dart';
+import 'package:spendly/presentation/home_screen/components/list_components/transaction_list.dart';
+import 'package:spendly/presentation/home_screen/components/user_information.dart';
 
 class HomeContent extends StatelessWidget {
   const HomeContent({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final GlobalKey<TooltipState> cashflowTooltipKey =
-        GlobalKey<TooltipState>();
+    final GlobalKey<TooltipState> cashflowTooltipKey = GlobalKey<TooltipState>();
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(
