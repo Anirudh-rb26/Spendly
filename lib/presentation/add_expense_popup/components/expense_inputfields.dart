@@ -7,15 +7,15 @@ import 'package:spendly/components/input_decoration.dart';
 import 'package:spendly/presentation/add_expense_popup/components/new_category_dialog.dart';
 
 class ExpenseInputFields extends StatefulWidget {
-  TextEditingController expenseController;
-  TextEditingController categoryController;
-  TextEditingController categoryColorController;
-  TextEditingController dateController;
-  TextEditingController noteController;
-  TextEditingController newCategoryController;
+  final TextEditingController expenseController;
+  final TextEditingController categoryController;
+  final TextEditingController categoryColorController;
+  final TextEditingController dateController;
+  final TextEditingController noteController;
+  final TextEditingController newCategoryController;
   final Function(CategoryList?, ColorList?) onSelectionChanged;
 
-  ExpenseInputFields({
+  const ExpenseInputFields({
     super.key,
     required this.expenseController,
     required this.categoryController,
