@@ -13,7 +13,7 @@ class TransactionServiceImpl implements TransactionServices {
   }
 
   @override
-  Future<List<TransactionModel>> getTransactions() async {
-    return await _repository.getTransactions();
+  Stream<List<TransactionModel>> getTransactionsStream() {
+    return _repository.getTransactionsStream();
   }
 }
